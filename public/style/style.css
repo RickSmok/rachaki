@@ -8,7 +8,6 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.3em;
     background: linear-gradient(to top, #0145AC, #82C7A5);
-    justify-content: center;
 }
 
 a {
@@ -82,7 +81,7 @@ p {
 
 #showcase {
     background: url('showcase.jpg') no-repeat center center/cover;
-    height: 600px;
+    margin-bottom: 5rem;
 }
 
 #showcase .showcase-principal {
@@ -136,7 +135,7 @@ p {
 #info-principal .info-imagem {
     float: left;
     width: 100px;
-    background: url('../logo_size_400.jpg') no-repeat;
+    background: url('../images/logo_size_400.jpg') no-repeat;
     min-height: 100%;
     min-width: 50%;
 }
