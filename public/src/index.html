@@ -87,7 +87,7 @@
     <footer id=rodape>
         <p>RachAki &copy;2021-todos os direitos reservados</p>
         <script>
-            var db = openDatabase("local.db.sqlite", '1.0', "Banco", 2 * 1024 * 1024);
+            let db = openDatabase("local.db.sqlite", '1.0', "Banco", 2 * 1024 * 1024);
             db.transaction(function (criar) {
                 criar.executeSql("CREATE TABLE PARTIDAS (nome text not null, tipo text not null, quantidade integer not null, data text not null, hora text not null, link text not null, end text not null)")
             });
