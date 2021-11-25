@@ -33,22 +33,14 @@
                 <h1> <span class="texto-principal">RachAki</span></h1>
                 <p class="text-detalhe">Localize jogos de diversos esportes na sua região e divirta-se fazendo novas
                     amizades!</p>
-                <a class="btn" id="create-match">Crie uma partida!</a>
+                <a class="btn" href="criar.html" id="create-match">Crie uma partida!</a>
             </div>
         </div>
     </div>
 
     <section class="jogos-box">
         <div class="jogos">
-            <div class="jogo">
-                <span class="game-name">Fut na quadrinha</span>
-                <span class="game-props game-category"><span class="prop-name">Esporte</span> Futebol</span>
-                <span class="game-props game-quantity"><span class="prop-name">Pessoas</span> 15</span>
-                <span class="game-props game-date"><span class="prop-name">Data e Hora</span> 15/11 - 19:30</span>
-                <span class="game-props game-adress"><span class="prop-name">Endereço</span>Rua qualquer, N°45, atras do
-                    boteco</span>
-                <button class="game-button">Entrar</button>
-            </div>
+
         </div>
     </section>
 
@@ -86,12 +78,6 @@
     <div class="clr"></div>
     <footer id=rodape>
         <p>RachAki &copy;2021-todos os direitos reservados</p>
-        <script>
-            let db = openDatabase("local.db.sqlite", '1.0', "Banco", 2 * 1024 * 1024);
-            db.transaction(function (criar) {
-                criar.executeSql("CREATE TABLE PARTIDAS (nome text not null, tipo text not null, quantidade integer not null, data text not null, hora text not null, link text not null, end text not null)")
-            });
-        </script>
     </footer>
 
     <script src="../scripts/index.js"></script>

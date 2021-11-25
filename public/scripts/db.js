@@ -1,22 +1,45 @@
-const db = openDatabase('local.db.sqlite', '1.0', 'Banco', 2 * 1024 * 1024)
-const gameButton = document.querySelector('#game-button')
-console.log(gameButton)
+const form = document.querySelector('#game-form')
+const gameButton = form.querySelector('#game-button')
+const gameName = form.querySelector('#game-name')
+const gameCategory = form.querySelector('#game-category')
+const gameQuantity = form.querySelector('#game-quantity')
+const gameData = form.querySelector('#game-data')
+const gameHour = form.querySelector('#game-hour')
+const gameUrl = form.querySelector('#game-url')
+const gameAdress = form.querySelector('#game-adress')
 
-gameButton.addEventListener('click', save)
-
-function save(event) {
-  event.preventDefault()
-  const gameName = document.querySelector('#game-name').value
-  const gameCategory = document.querySelector('#game-category').value
-  const gameQuantity = document.querySelector('#game-quantity').value
-  const gameDate = document.querySelector('#game-date').value
-  const gameHour = document.querySelector('#game-hour').value
-  const gameUrl = document.querySelector('#game-url').value
-  const gameAdress = document.querySelector('#game-adress').value
-
-  db.transaction(function (armazenar) {
-    armazenar.executeSql(
-      `INSERT INTO PARTIDAS (nome, tipo, quantidade, data, hora, link, end) VALUES (${gameName}, ${gameCategory}, ${gameQuantity}, ${gameDate}, ${gameHour}, ${gameUrl}, ${gameAdress})`
-    )
-  })
+function generateId() {
+  let i
+  localStorage.getItem('@rachaki/id')
+    ? (i = parseInt(localStorage.getItem('@rachaki/id')) + 1)
+    : (i = 1)
+  localStorage.setItem('@rachaki/id', i)
+  return i
 }
+
+gameButton.addEventListener('click', event => {
+  event.preventDefault()
+  gameObject = {
+    id: generateId(),
+    name: gameName.value,
+    category: gameCategory.value,
+    quantity: gameQuantity.value,
+    data: gameData.value,
+    hour: gameHour.value,
+    url: gameUrl.value,
+    adress: gameAdress.value
+  }
+  localStorage.setItem(
+    `@rachaki/jogo${gameObject.id}`,
+    JSON.stringify(gameObject)
+  )
+  gameName.value = ''
+  gameCategory.value = ''
+  gameQuantity.value = ''
+  gameData.value = ''
+  gameHour.value = ''
+  gameUrl.value = ''
+  gameAdress.value = ''
+
+  alert('Jogo cadastrado com sucesso!')
+})

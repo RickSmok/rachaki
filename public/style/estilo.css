@@ -53,21 +53,6 @@ body {
   padding-bottom: 0 20px;
 }
 
-input {
-  display: block;
-  height: 55px;
-  width: 400px;
-  margin: 10px;
-  border-radius: 30px;
-  border: 1px solid black;
-  font-size: 16pt;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.01);
-  color: black;
-  outline: none;
-  cursor: pointer;
-}
-
 div#corpo-form {
   width: 420px;
   margin: 130px auto 0px auto;
@@ -87,11 +72,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-input[type='submit'] {
-  background: linear-gradient(to top, #82c7a5, #50776b);
-  border: none;
 }
 
 ::-webkit-input-placeholder {

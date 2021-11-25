@@ -9,7 +9,7 @@
     <meta name="keywords" content="RachAki">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/estilo.css">
-    <link rel="stylesheet" href="jogos.css">
+    <link rel="stylesheet" href="../style/form.css">
     <title>criar</title>
 </head>
 
@@ -26,33 +26,20 @@
             </ul>
         </nav>
     </header>
-    <section id="form-contato" class=pad3-y>
-        <div id="corpo-form">
-            <h1>Crie uma partida!</h1>
-            <p id="subtitulo2">Preencha os campos abaixo: </p>
-            <form method="POST">
-                <input type="text" placeholder="Nome do jogo" required>
-                <div>
-                    <select id="quantidade">
-                        <option selected disabled value="">Selecione</option>
-                        <option>Futebol</option>
-                        <option>Society</option>
-                        <option>Futsal</option>
-                        <option>Vôlei</option>
-                        <option>Basquete</option>
-                        <option>Corrida</option>
-                        <option>Pedal</option>
-                    </select>
-                </div>
-                <input id="game-quantity" type="number" placeholder="Número de Participantes" required>
-                <input id="game-date" type="date" placeholder="Data do jogo" required>
-                <input id="game-hour" type="time" placeholder="Horário" required>
-                <input id="game-url" type="text" placeholder="Link Grupo Whatsapp">
-                <input id="game-adress" type="text" placeholder="Endereço" required>
-                <button class="game-button" id="game-button"> Criar </button>
-            </form>
-        </div>
-    </section>
+
+    <main>
+        <form id="game-form">
+            <input required type="text" id="game-name" placeholder="Nome do jogo">
+            <input required type="text" id="game-category" placeholder="Categoria">
+            <input required type="number" id="game-quantity" placeholder="Quantidade">
+            <input required type="text" id="game-data" placeholder="Data">
+            <input required type="time" id="game-hour" placeholder="Hora">
+            <input required type="url" id="game-url" placeholder="link do grupo">
+            <input required type="text" id="game-adress" placeholder="Endereço">
+            <button id="game-button" type="submit">Criar</button>
+        </form>
+    </main>
+
     <footer id=rodape>
         <p>RachAki &copy;2021-todos os direitos reservados</p>
     </footer>
