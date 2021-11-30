@@ -89,14 +89,37 @@ matches.forEach(match => {
   // create 'button' element to insert in jogo
   const gameButton = document.createElement('button')
   gameButton.classList.add('game-button')
-  gameButton.innerHTML = 'Entrar'
 
+  // insert url of game
+  const gameUrl = document.createElement('a')
+  gameUrl.classList.add('game-url')
+  gameUrl.href = match.url
+  gameUrl.target = '_blank'
+  gameUrl.innerHTML = 'Entrar'
+  gameButton.appendChild(gameUrl)
+
+  // create 'delete' element to insert in jogo
+  const gameDelete = document.createElement('button')
+  gameDelete.classList.add('game-delete')
+  gameDelete.innerHTML = 'Remover'
+
+  gameDelete.addEventListener('click', event => {
+    event.preventDefault()
+    const index = matches.findIndex(match => match.id === match.id)
+    matches.splice(index, 1)
+    localStorage.setItem('@rachaki/id', matches.length)
+    localStorage.removeItem(`@rachaki/jogo${index + 1}`)
+    jogos.removeChild(jogo)
+  })
+
+  // insert all elements in jogo
   jogo.appendChild(gameName)
   jogo.appendChild(gamePropCategory)
   jogo.appendChild(gamePropQuantity)
   jogo.appendChild(gamePropData)
   jogo.appendChild(gamePropAdress)
   jogo.appendChild(gameButton)
+  jogo.appendChild(gameDelete)
 
   // add jogo to jogos-box
   jogos.appendChild(jogo)

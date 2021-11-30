@@ -63,3 +63,15 @@
   font-weight: bold;
   display: block;
 }
+
+.game-delete {
+  background: #ff6961;
+  border: 1px solid #e5e5e5;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
