@@ -8,6 +8,13 @@ const gameHour = form.querySelector('#game-hour')
 const gameUrl = form.querySelector('#game-url')
 const gameAdress = form.querySelector('#game-adress')
 
+// function to verify if input is empty
+function validateInput(input) {
+  input.value.trim() === ''
+    ? input.classList.add('is-invalid')
+    : input.classList.remove('is-invalid')
+}
+
 function generateId() {
   let i
   localStorage.getItem('@rachaki/id')
@@ -19,27 +26,38 @@ function generateId() {
 
 gameButton.addEventListener('click', event => {
   event.preventDefault()
-  gameObject = {
-    id: generateId(),
-    name: gameName.value,
-    category: gameCategory.value,
-    quantity: gameQuantity.value,
-    data: gameData.value,
-    hour: gameHour.value,
-    url: gameUrl.value,
-    adress: gameAdress.value
-  }
-  localStorage.setItem(
-    `@rachaki/jogo${gameObject.id}`,
-    JSON.stringify(gameObject)
-  )
-  gameName.value = ''
-  gameCategory.value = ''
-  gameQuantity.value = ''
-  gameData.value = ''
-  gameHour.value = ''
-  gameUrl.value = ''
-  gameAdress.value = ''
 
-  alert('Jogo cadastrado com sucesso!')
+  validateInput(gameName)
+  validateInput(gameCategory)
+  validateInput(gameQuantity)
+  validateInput(gameHour)
+  validateInput(gameUrl)
+  validateInput(gameAdress)
+
+  document.querySelectorAll('.is-invalid').forEach(input => {
+    alert(`O campo ${input.placeholder} não pode ser vazio`)
+  })
+
+  document.querySelectorAll('.is-invalid').length === 0 && saveGame()
+
+  function saveGame() {
+    gameObject = {
+      id: generateId(),
+      name: gameName.value,
+      category: gameCategory.value,
+      quantity: gameQuantity.value,
+      data: gameData.value,
+      hour: gameHour.value,
+      url: gameUrl.value,
+      adress: gameAdress.value
+    }
+
+    localStorage.setItem(
+      `@rachaki/jogo${gameObject.id}`,
+      JSON.stringify(gameObject)
+    )
+
+    alert('Jogo cadastrado com sucesso!')
+    form.reset()
+  }
 })
