@@ -71,6 +71,22 @@ matches.forEach(match => {
   gameData.innerHTML = match.data
   gamePropData.appendChild(gameData)
 
+  // inserting game hour in jogo
+
+  const gamePropHour = document.createElement('span')
+  gamePropHour.classList.add('game-props')
+
+  // add fixed label
+  const propNameHour = document.createElement('span')
+  propNameHour.classList.add('prop-name')
+  propNameHour.innerHTML = 'Horário'
+  gamePropHour.appendChild(propNameHour)
+
+  // add value
+  const gameHour = document.createElement('span')
+  gameHour.innerHTML = match.hour
+  gamePropHour.appendChild(gameHour)
+
   // inserting game adress in jogo
   const gamePropAdress = document.createElement('span')
   gamePropAdress.classList.add('game-props')
@@ -117,6 +133,7 @@ matches.forEach(match => {
   jogo.appendChild(gamePropCategory)
   jogo.appendChild(gamePropQuantity)
   jogo.appendChild(gamePropData)
+  jogo.appendChild(gamePropHour)
   jogo.appendChild(gamePropAdress)
   jogo.appendChild(gameButton)
   jogo.appendChild(gameDelete)

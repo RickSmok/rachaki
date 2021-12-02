@@ -26,7 +26,7 @@
   width: 11rem;
   padding: 1rem;
   margin: 0.5rem;
-  height: 21.75rem;
+  min-height: 21.75rem;
 }
 
 .game-name {
